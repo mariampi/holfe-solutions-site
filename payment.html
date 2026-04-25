@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment | HolFe Solutions</title>
+  <meta name="description" content="Make a payment to HolFe Solutions using Square or Cash App.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo-wrap">
+        <a class="logo" href="index.html"><img src="images/holfe_logo.png" alt="HolFe Solutions logo"></a>
+        <div class="site-title">
+          <a href="index.html">HolFe Solutions</a>
+          <span class="site-subtitle">AI Readiness and Digital Operations</span>
+        </div>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav class="main-nav" aria-label="Primary navigation" data-nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="rates.html">Rates</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a class="active" href="payment.html">Payment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <a class="header-cta" href="booking.html">Book Now</a>
+      <div class="language-switch">
+        <span>Language</span>
+        <a href="payment-es.html" lang="es">ES</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+    <section class="page-hero">
+      <div class="container hero-copy">
+        <div class="eyebrow">Payment</div>
+        <h1>Secure and straightforward payment options.</h1>
+        <p class="lead">
+          Once your scope and total have been confirmed, you can use the options below to complete payment.
+          This page keeps the original payment intent intact while presenting it in a cleaner format.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container payment-grid">
+        <article class="payment-card">
+          <div class="eyebrow">Square checkout</div>
+          <h3>Pay online</h3>
+          <p>Use the secure checkout page to pay with a debit card, credit card, or other supported methods available through Square.</p>
+          <ul class="check-list">
+            <li>Best for invoice and quote payments</li>
+            <li>Processed securely by Square</li>
+            <li>Confirmation is provided after payment is completed</li>
+          </ul>
+          <div class="stack-actions">
+            <a class="btn btn-primary" href="https://square.link/u/1ezO89Jk" target="_blank" rel="noopener noreferrer">Pay now</a>
+          </div>
+          <p class="small-note"><strong>Available methods may include:</strong> debit and credit cards, Cash App Pay, Afterpay, Apple Pay, and Google Pay depending on device and browser.</p>
+        </article>
+
+        <article class="payment-card">
+          <div class="eyebrow">Direct Cash App</div>
+          <h3>Optional direct payment</h3>
+          <p>If preferred, payment can also be sent directly to <strong>$HolfeSolutions</strong> through Cash App.</p>
+          <ul class="check-list">
+            <li>Separate from Square checkout</li>
+            <li>Useful if you already pay through Cash App</li>
+            <li>Receipts can be provided on request</li>
+          </ul>
+          <div class="stack-actions">
+            <a class="btn btn-secondary" href="https://cash.app/$HolfeSolutions" target="_blank" rel="noopener noreferrer">Open Cash App</a>
+          </div>
+          <p class="small-note"><strong>Important:</strong> direct Cash App payments do not appear inside Square invoices or reports.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container glass-panel">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Scan instead</div>
+            <h2>QR codes for quick access.</h2>
+          </div>
+          <p class="section-intro">Use these codes to open the same payment options on your mobile device.</p>
+        </div>
+        <div class="qr-grid">
+          <div class="qr-card">
+            <h3>Square checkout QR</h3>
+            <img src="images/checkout-link-qr-code.png" alt="Square checkout QR code for HolFe Solutions">
+            <p class="small-note">Opens the secure Square payment page.</p>
+          </div>
+          <div class="qr-card">
+            <h3>Direct Cash App QR</h3>
+            <img src="images/cashapp-qr.png" alt="Cash App QR code for direct payment to HolFe Solutions">
+            <p class="small-note">Opens Cash App for direct payment to <strong>$HolfeSolutions</strong>.</p>
+          </div>
+        </div>
+        <p class="small-note"><strong>Please note:</strong> only send payment after the amount has been confirmed through a quote, invoice, or direct written approval.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <strong>HolFe Solutions</strong>
+      <p>Secure payment options for approved service work, consultations, and support.</p>
+      <div class="footer-links">
+        <a href="booking.html">Booking</a>
+        <a href="contact.html">Contact</a>
+        <a href="rates.html">Rates</a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
