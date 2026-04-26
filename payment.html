@@ -3,14 +3,454 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment | HolFe Solutions</title>
-  <meta name="description" content="Make a payment to HolFe Solutions using Square or Cash App.">
+  <title>Secure Payment Portal | HolFe Solutions</title>
+  <meta name="description" content="Pay HolFe Solutions securely online using Square checkout. Fast, trusted payment options for approved services and consultations.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body.payment-portal {
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    body.payment-portal::before {
+      display: none;
+    }
+
+    .payment-shell {
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 48%, #eef4ff 100%);
+      min-height: 100vh;
+      padding-bottom: 4rem;
+    }
+
+    .payment-hero {
+      padding: 4.5rem 0 2.5rem;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(29, 78, 216, 0.88)),
+        #0f172a;
+      color: #ffffff;
+    }
+
+    .payment-hero-grid {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .payment-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      color: #dbeafe;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .payment-kicker::before {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 0.25rem rgba(34, 197, 94, 0.18);
+    }
+
+    .payment-hero h1 {
+      margin: 1.25rem 0 1rem;
+      color: #ffffff;
+      font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .payment-hero p {
+      max-width: 45rem;
+      margin: 0;
+      color: #dbeafe;
+      font-size: 1.08rem;
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+      max-width: 44rem;
+    }
+
+    .trust-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      min-height: 44px;
+      padding: 0.65rem 0.8rem;
+      border-radius: 14px;
+      color: #e0f2fe;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .trust-chip span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.35rem;
+      height: 1.35rem;
+      border-radius: 999px;
+      color: #052e16;
+      background: #86efac;
+      font-size: 0.78rem;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .secure-summary {
+      padding: 1.5rem;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 26px 70px rgba(2, 6, 23, 0.25);
+    }
+
+    .secure-summary strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1.15rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .secure-summary p {
+      color: #dbeafe;
+      font-size: 0.98rem;
+    }
+
+    .payment-primary-button,
+    .payment-secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 56px;
+      padding: 1rem 1.35rem;
+      border-radius: 14px;
+      border: 0;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+    }
+
+    .payment-primary-button {
+      margin-top: 1.5rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, #16a34a, #2563eb);
+      box-shadow: 0 18px 38px rgba(37, 99, 235, 0.3);
+    }
+
+    .payment-primary-button:hover,
+    .payment-primary-button:focus-visible,
+    .payment-secondary-button:hover,
+    .payment-secondary-button:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .payment-section {
+      padding: 3rem 0 0;
+    }
+
+    .payment-section h2 {
+      margin: 0 0 0.75rem;
+      color: #0f172a;
+      font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .payment-section-intro {
+      max-width: 42rem;
+      margin: 0 0 1.5rem;
+      color: #475569;
+    }
+
+    .payment-methods {
+      display: grid;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .method-card {
+      border-radius: 24px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.09);
+      padding: 1.25rem;
+    }
+
+    .method-card.featured {
+      border: 2px solid rgba(37, 99, 235, 0.35);
+      box-shadow: 0 24px 80px rgba(37, 99, 235, 0.16);
+    }
+
+    .method-label {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.38rem 0.65rem;
+      border-radius: 999px;
+      color: #166534;
+      background: #dcfce7;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .method-card h3 {
+      margin: 1rem 0 0.55rem;
+      color: #0f172a;
+      font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .method-card.featured h3 {
+      font-size: 1.9rem;
+    }
+
+    .method-card p {
+      margin: 0;
+      color: #475569;
+    }
+
+    .method-grid {
+      display: grid;
+      gap: 1.25rem;
+      align-items: start;
+      margin-top: 1.35rem;
+    }
+
+    .pay-list {
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+      margin: 1rem 0 0;
+      padding: 0;
+    }
+
+    .pay-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: #334155;
+      font-weight: 650;
+    }
+
+    .pay-list li::before {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 999px;
+      background: #22c55e;
+      flex: 0 0 auto;
+    }
+
+    .benefit-panel {
+      border-radius: 18px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 1rem;
+    }
+
+    .benefit-panel strong {
+      display: block;
+      margin-bottom: 0.65rem;
+      color: #0f172a;
+    }
+
+    .qr-row {
+      display: grid;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 1.2rem;
+    }
+
+    .qr-box {
+      border-radius: 20px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .qr-box img {
+      width: 188px;
+      max-width: 100%;
+      margin: 0 auto;
+      border-radius: 12px;
+      background: #ffffff;
+    }
+
+    .qr-box.small img {
+      width: 132px;
+    }
+
+    .qr-box span {
+      display: block;
+      margin-top: 0.65rem;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .payment-secondary-button {
+      margin-top: 1.25rem;
+      color: #0f172a;
+      background: #e2e8f0;
+      border: 1px solid #cbd5e1;
+    }
+
+    .notice-box {
+      border-radius: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 1.5rem;
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.16);
+    }
+
+    .notice-box h2 {
+      color: #ffffff;
+    }
+
+    .notice-box p,
+    .notice-box li {
+      color: #dbeafe;
+    }
+
+    .notice-list {
+      display: grid;
+      gap: 0.65rem;
+      margin: 1.1rem 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .notice-list li {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      font-weight: 700;
+    }
+
+    .notice-list li::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: #22c55e;
+      flex: 0 0 auto;
+    }
+
+    .contact-line {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 0.5rem;
+      padding: 0.75rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .payment-faq {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .payment-faq details {
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 14px 42px rgba(15, 23, 42, 0.06);
+      padding: 1rem 1.1rem;
+    }
+
+    .payment-faq summary {
+      cursor: pointer;
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .payment-faq p {
+      margin: 0.75rem 0 0;
+      color: #475569;
+    }
+
+    .payment-portal .site-footer {
+      background: #f8fafc;
+    }
+
+    .payment-portal .footer-grid {
+      background: #ffffff;
+      border-color: #e2e8f0;
+    }
+
+    .payment-portal .footer-grid p,
+    .payment-portal .footer-links a {
+      color: #475569;
+    }
+
+    @media (min-width: 860px) {
+      .payment-hero-grid {
+        grid-template-columns: minmax(0, 1.3fr) minmax(310px, 0.7fr);
+      }
+
+      .payment-methods {
+        grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      }
+
+      .method-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(250px, 0.82fr);
+      }
+
+      .qr-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .payment-hero {
+        padding: 3rem 0 2rem;
+      }
+
+      .payment-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .trust-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .method-card,
+      .notice-box {
+        border-radius: 20px;
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="payment-portal">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="container header-inner">
@@ -45,74 +485,128 @@
     </div>
   </header>
 
-  <main id="main" class="page">
-    <section class="page-hero">
-      <div class="container hero-copy">
-        <div class="eyebrow">Payment</div>
-        <h1>Secure and straightforward payment options.</h1>
-        <p class="lead">
-          Once your scope and total have been confirmed, you can use the options below to complete payment.
-          This page keeps the original payment intent intact while presenting it in a cleaner format.
+  <main id="main" class="payment-shell">
+    <section class="payment-hero">
+      <div class="container payment-hero-grid">
+        <div>
+          <div class="payment-kicker">HolFe Solutions Billing</div>
+          <h1>Secure Payment Portal</h1>
+          <p>
+            HolFe Solutions accepts payments only for approved services, completed work,
+            consultations, and issued invoices.
+          </p>
+          <div class="trust-strip" aria-label="Payment trust highlights">
+            <div class="trust-chip"><span>&#10003;</span> Secure Checkout</div>
+            <div class="trust-chip"><span>&#10003;</span> Trusted Payment Processor</div>
+            <div class="trust-chip"><span>&#10003;</span> Fast Confirmation</div>
+            <div class="trust-chip"><span>&#10003;</span> Miami Local Business</div>
+          </div>
+          <a class="payment-primary-button" href="https://square.link/u/1ezO89Jk" target="_blank" rel="noopener noreferrer">Pay with Square</a>
+        </div>
+        <aside class="secure-summary" aria-label="Payment guidance">
+          <strong>Recommended payment method</strong>
+          <p>
+            Square checkout is the preferred option for invoices, consultations, repair work,
+            and approved service payments. It provides the cleanest confirmation and receipt experience.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="payment-section">
+      <div class="container">
+        <h2>Choose Payment Method</h2>
+        <p class="payment-section-intro">
+          For the safest and most professional payment experience, please use Square checkout first.
+          Cash App is available only as an optional backup for approved direct payments.
         </p>
+
+        <div class="payment-methods">
+          <article class="method-card featured">
+            <span class="method-label">Recommended</span>
+            <h3>Square Checkout</h3>
+            <p>Use our secure Square checkout to pay by:</p>
+
+            <div class="method-grid">
+              <div>
+                <ul class="pay-list">
+                  <li>Credit Card</li>
+                  <li>Debit Card</li>
+                  <li>Apple Pay</li>
+                  <li>Google Pay</li>
+                  <li>Cash App Pay, if available</li>
+                  <li>Afterpay, if available</li>
+                </ul>
+              </div>
+
+              <div class="benefit-panel">
+                <strong>Why Square is preferred</strong>
+                <ul class="pay-list">
+                  <li>Most secure option</li>
+                  <li>Best for invoices</li>
+                  <li>Instant confirmation</li>
+                  <li>Professional receipt</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="qr-row">
+              <a class="payment-primary-button" href="https://square.link/u/1ezO89Jk" target="_blank" rel="noopener noreferrer">Pay Securely with Square</a>
+              <div class="qr-box">
+                <img src="images/checkout-link-qr-code.png" alt="Square checkout QR code for HolFe Solutions">
+                <span>Scan for Square checkout</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="method-card">
+            <span class="method-label">Optional Backup</span>
+            <h3>Cash App</h3>
+            <p>For returning customers or direct approved payments only.</p>
+            <a class="payment-secondary-button" href="https://cash.app/$HolfeSolutions" target="_blank" rel="noopener noreferrer">Open Cash App</a>
+            <div class="qr-box small" style="margin-top: 1rem;">
+              <img src="images/cashapp-qr.png" alt="Cash App QR code for direct payment to HolFe Solutions">
+              <span>Optional direct payment</span>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container payment-grid">
-        <article class="payment-card">
-          <div class="eyebrow">Square checkout</div>
-          <h3>Pay online</h3>
-          <p>Use the secure checkout page to pay with a debit card, credit card, or other supported methods available through Square.</p>
-          <ul class="check-list">
-            <li>Best for invoice and quote payments</li>
-            <li>Processed securely by Square</li>
-            <li>Confirmation is provided after payment is completed</li>
+    <section class="payment-section">
+      <div class="container">
+        <div class="notice-box">
+          <h2>Please confirm before paying</h2>
+          <p>Please only submit payment after receiving:</p>
+          <ul class="notice-list">
+            <li>Approved quote</li>
+            <li>Invoice</li>
+            <li>Written confirmation</li>
+            <li>Completed service request</li>
           </ul>
-          <div class="stack-actions">
-            <a class="btn btn-primary" href="https://square.link/u/1ezO89Jk" target="_blank" rel="noopener noreferrer">Pay now</a>
-          </div>
-          <p class="small-note"><strong>Available methods may include:</strong> debit and credit cards, Cash App Pay, Afterpay, Apple Pay, and Google Pay depending on device and browser.</p>
-        </article>
-
-        <article class="payment-card">
-          <div class="eyebrow">Direct Cash App</div>
-          <h3>Optional direct payment</h3>
-          <p>If preferred, payment can also be sent directly to <strong>$HolfeSolutions</strong> through Cash App.</p>
-          <ul class="check-list">
-            <li>Separate from Square checkout</li>
-            <li>Useful if you already pay through Cash App</li>
-            <li>Receipts can be provided on request</li>
-          </ul>
-          <div class="stack-actions">
-            <a class="btn btn-secondary" href="https://cash.app/$HolfeSolutions" target="_blank" rel="noopener noreferrer">Open Cash App</a>
-          </div>
-          <p class="small-note"><strong>Important:</strong> direct Cash App payments do not appear inside Square invoices or reports.</p>
-        </article>
+          <p>If you have questions, contact us before paying.</p>
+          <a class="contact-line" href="tel:7863533139">Phone/Text: 786-353-3139</a>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container glass-panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Scan instead</div>
-            <h2>QR codes for quick access.</h2>
-          </div>
-          <p class="section-intro">Use these codes to open the same payment options on your mobile device.</p>
+    <section class="payment-section">
+      <div class="container">
+        <h2>Payment FAQ</h2>
+        <div class="payment-faq">
+          <details>
+            <summary>When should I pay?</summary>
+            <p>Only after approval, an invoice, written confirmation, or completed service request.</p>
+          </details>
+          <details>
+            <summary>Do I receive a receipt?</summary>
+            <p>Yes. Square provides payment confirmation and a professional receipt after checkout.</p>
+          </details>
+          <details>
+            <summary>Need help?</summary>
+            <p>Call or text HolFe Solutions at <a class="muted-link" href="tel:7863533139">786-353-3139</a>.</p>
+          </details>
         </div>
-        <div class="qr-grid">
-          <div class="qr-card">
-            <h3>Square checkout QR</h3>
-            <img src="images/checkout-link-qr-code.png" alt="Square checkout QR code for HolFe Solutions">
-            <p class="small-note">Opens the secure Square payment page.</p>
-          </div>
-          <div class="qr-card">
-            <h3>Direct Cash App QR</h3>
-            <img src="images/cashapp-qr.png" alt="Cash App QR code for direct payment to HolFe Solutions">
-            <p class="small-note">Opens Cash App for direct payment to <strong>$HolfeSolutions</strong>.</p>
-          </div>
-        </div>
-        <p class="small-note"><strong>Please note:</strong> only send payment after the amount has been confirmed through a quote, invoice, or direct written approval.</p>
       </div>
     </section>
   </main>
@@ -120,7 +614,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <strong>HolFe Solutions</strong>
-      <p>Secure payment options for approved service work, consultations, and support.</p>
+      <p>Secure payment options for approved tech support, consulting, repair services, and invoices.</p>
       <div class="footer-links">
         <a href="booking.html">Booking</a>
         <a href="contact.html">Contact</a>
