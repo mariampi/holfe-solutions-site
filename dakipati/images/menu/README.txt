@@ -1,13 +1,25 @@
-Dakipati approved menu images
+﻿Dakipati approved menu images
 
-Current local approved image used:
-- tripleta-original.png: used for the Tripleta Original menu item. Alt text is generated from the menu item title.
+Current optimized images wired into src/data/menu.ts:
+- vaso-mariscos.jpg -> vaso-mariscos
+- canasta-mixtas.jpg -> canasta-mixtas
+- sandwich-churrasco.jpg -> sandwich-churrasco
+- tripleta-original.jpg -> tripleta-original
+- picada.jpg -> picada
 
-Additional approved client or restaurant-owned photos can be added here later and wired in src/data/menu.ts, for example:
-- alcapurria.png
-- wings-6-piece.png
-- papas-locas.png
-- mofongo.png
-- seafood.png
+Original customer-provided uploads are kept in this folder for reference. Optimized JPG versions should be used by the website.
 
-Do not hotlink DoorDash images. Only place locally approved and optimized images in this folder.
+For future photos:
+- Use lowercase filenames.
+- Use hyphens instead of spaces.
+- Match the menu item id when possible.
+- Preferred max width: about 1200px.
+- Preferred formats: .jpg or .webp.
+
+Examples:
+- papas-locas.jpg
+- wings-6.jpg
+- mofongo-churrasco.jpg
+- alcapurria.jpg
+
+Do not hotlink DoorDash or Instagram images. Only place locally approved and optimized images in this folder.
