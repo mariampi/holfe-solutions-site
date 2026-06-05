@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Juan Perez",
+    "email": "juan@dakipati.demo",
+    "password": "Demo123!",
+    "points": 140,
+    "lifetimeSpend": 182.5,
+    "orders": 8
+  },
+  {
+    "id": 2,
+    "name": "Maria Rodriguez",
+    "email": "maria@dakipati.demo",
+    "password": "Demo123!",
+    "points": 320,
+    "lifetimeSpend": 427.25,
+    "orders": 14
+  },
+  {
+    "id": 3,
+    "name": "Carlos Rivera",
+    "email": "carlos@dakipati.demo",
+    "password": "Demo123!",
+    "points": 75,
+    "lifetimeSpend": 98.4,
+    "orders": 4
+  }
+]
