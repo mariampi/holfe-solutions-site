@@ -135,7 +135,9 @@ function startGsapEnhancements() {
     ".platform-grid",
     ".info-grid",
     ".timeline-grid",
-    ".payment-grid"
+    ".payment-grid",
+    ".about-journey",
+    ".about-principles"
   ].forEach(function (groupSelector) {
     gsap.utils.toArray(groupSelector).forEach(function (group) {
       var children = Array.prototype.filter.call(group.children, function (child) {
@@ -154,6 +156,23 @@ function startGsapEnhancements() {
       });
     });
   });
+
+  var aboutHeadshot = document.querySelector(".story-grid .headshot img");
+  if (aboutHeadshot) {
+    gsap.from(aboutHeadshot, {
+      scrollTrigger: { trigger: aboutHeadshot, start: "top 88%", once: true },
+      scale: 1.06,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      clearProps: "opacity,transform"
+    });
+    gsap.to(aboutHeadshot, {
+      yPercent: 4,
+      ease: "none",
+      scrollTrigger: { trigger: ".story-grid", start: "top bottom", end: "bottom top", scrub: 0.6 }
+    });
+  }
 
   gsap.utils.toArray(".btn, .header-cta").forEach(function (button) {
     button.addEventListener("pointerenter", function () {

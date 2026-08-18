@@ -779,6 +779,20 @@ select {
 @media (max-width: 1000px) { .booking-type-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media (max-width: 680px) { .booking-type-grid, .booking-steps { grid-template-columns: 1fr; } .booking-type-card.featured { transform: none; } }
 
+.founder-story blockquote { margin: 1.4rem 0; padding: 1rem 1.1rem; border-left: 3px solid #5f8cff; border-radius: 0 14px 14px 0; background: rgba(83,127,255,.08); color: var(--muted-strong); font-size: 1.08rem; line-height: 1.65; }
+.founder-signals { display: flex; flex-wrap: wrap; gap: .55rem; }
+.founder-signals span { padding: .45rem .7rem; border: 1px solid var(--line); border-radius: 999px; color: var(--text-muted); font-size: .78rem; font-weight: 800; }
+.about-journey { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+.about-principles { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1rem; }
+.about-principles article { padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(18,32,59,.86), rgba(9,17,33,.92)); box-shadow: var(--shadow-card); }
+.about-principles article > span { color: #9dbaff; font-family: "Space Grotesk", sans-serif; font-weight: 700; }
+.about-principles h3 { margin: .8rem 0 .5rem; }
+.about-principles p { margin: 0; color: var(--text-muted); line-height: 1.65; }
+.headshot { overflow: hidden; }
+
+@media (max-width: 1000px) { .about-principles { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 760px) { .about-journey, .about-principles { grid-template-columns: 1fr; } }
+
 .grid-3,
 .feature-grid,
 .pricing-grid,
