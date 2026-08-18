@@ -147,7 +147,8 @@ function startGsapEnhancements() {
     ".payment-grid",
     ".about-journey",
     ".about-principles",
-    ".home-care-grid"
+    ".home-care-grid",
+    ".demo-grid"
   ].forEach(function (groupSelector) {
     gsap.utils.toArray(groupSelector).forEach(function (group) {
       var children = Array.prototype.filter.call(group.children, function (child) {
@@ -183,6 +184,19 @@ function startGsapEnhancements() {
       scrollTrigger: { trigger: ".story-grid", start: "top bottom", end: "bottom top", scrub: 0.6 }
     });
   }
+
+  gsap.utils.toArray(".demo-thumb").forEach(function (thumb) {
+    gsap.to(thumb, { backgroundSize: "108%", duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut" });
+  });
+
+  gsap.utils.toArray(".demo-card").forEach(function (card) {
+    card.addEventListener("pointerenter", function () {
+      gsap.to(card, { y: -6, boxShadow: "0 34px 90px rgba(0,0,0,.38)", duration: .28, ease: "power2.out" });
+    });
+    card.addEventListener("pointerleave", function () {
+      gsap.to(card, { y: 0, duration: .32, ease: "power2.out", clearProps: "transform,boxShadow" });
+    });
+  });
 
   gsap.utils.toArray(".btn, .header-cta").forEach(function (button) {
     button.addEventListener("pointerenter", function () {

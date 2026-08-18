@@ -17,6 +17,7 @@ for (const filename of sitePages) {
 
 await writeFile(new URL("../public/styles.css", import.meta.url), await readFile(new URL("../styles.css", import.meta.url)), "utf8");
 await writeFile(new URL("../public/script.js", import.meta.url), await readFile(new URL("../script.js", import.meta.url)), "utf8");
+await writeFile(new URL("../public/demos/index.html", import.meta.url), await readFile(new URL("../demos/index.html", import.meta.url)), "utf8");
 
 const html = await readFile(new URL("../public/index.html", import.meta.url), "utf8");
 const match = html.match(/<body[^>]*>([\s\S]*?)<script\s+src=["']script\.js["'][^>]*><\/script>\s*<\/body>/i);
