@@ -11,13 +11,17 @@ for (const filename of sitePages) {
   const publicFile = new URL(`../public/${filename}`, import.meta.url);
   const sourceHtml = await readFile(sourceFile, "utf8");
   const footer = filename.includes("-es") || filename === "sobre.html" ? spanishFooter : englishFooter;
-  const normalizedHtml = sourceHtml.replace(/(<div class="footer-links">)[\s\S]*?(<\/div>)/, `$1${footer}$2`);
+  let normalizedHtml = sourceHtml.replace(/(<div class="footer-links">)[\s\S]*?(<\/div>)/, `$1${footer}$2`);
+  if (filename.includes("-es") || filename === "sobre.html") {
+    normalizedHtml = normalizedHtml.replace(/href="demos\/"/g, 'href="demos/index-es.html"');
+  }
   await writeFile(publicFile, normalizedHtml, "utf8");
 }
 
 await writeFile(new URL("../public/styles.css", import.meta.url), await readFile(new URL("../styles.css", import.meta.url)), "utf8");
 await writeFile(new URL("../public/script.js", import.meta.url), await readFile(new URL("../script.js", import.meta.url)), "utf8");
 await writeFile(new URL("../public/demos/index.html", import.meta.url), await readFile(new URL("../demos/index.html", import.meta.url)), "utf8");
+await writeFile(new URL("../public/demos/index-es.html", import.meta.url), await readFile(new URL("../demos/index-es.html", import.meta.url)), "utf8");
 
 const html = await readFile(new URL("../public/index.html", import.meta.url), "utf8");
 const match = html.match(/<body[^>]*>([\s\S]*?)<script\s+src=["']script\.js["'][^>]*><\/script>\s*<\/body>/i);

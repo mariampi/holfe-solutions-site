@@ -575,6 +575,20 @@ select {
 @media (max-width: 900px) { .home-care-grid { grid-template-columns: 1fr; } .home-care-grid article.featured { transform: none; } .home-about-panel { grid-template-columns: 1fr; } .home-about-image { max-height: 340px; } }
 @media (max-width: 560px) { .workflow-node { width: 112px; padding: .62rem; } .workflow-core { width: 142px; min-height: 104px; } .node-improve { top: 5%; } }
 
+.demo-page { background: radial-gradient(circle at 20% 0%, rgba(116,168,255,.18), transparent 28%), linear-gradient(180deg,#07101f 0%,#0b1425 55%,#07101f 100%); min-height: 100vh; }
+.demo-hero { padding: 4rem 0 1.5rem; }
+.demo-hero h1 { margin: 1rem 0; max-width: 760px; font-size: clamp(2.4rem,6vw,4.8rem); line-height: 1; }
+.demo-hero p { max-width: 680px; color: #cbd5e1; font-size: 1.05rem; }
+.demo-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1.25rem; padding: 2rem 0 4rem; }
+.demo-card { overflow: hidden; border: 1px solid rgba(148,163,184,.22); border-radius: 28px; background: rgba(15,23,42,.86); box-shadow: 0 28px 80px rgba(0,0,0,.28); }
+.demo-thumb { min-height: 220px; background: linear-gradient(135deg,rgba(7,21,47,.16),rgba(214,40,57,.2)), url("/dakipati/images/logo/dakipati-official-brand.jpg") center / 102% no-repeat; border-bottom: 1px solid rgba(148,163,184,.18); transition: filter .3s ease; }
+.demo-card-body { padding: 1.4rem; }
+.demo-badge { display: inline-flex; padding: .42rem .7rem; border-radius: 999px; color: #dbeafe; background: rgba(37,99,235,.18); border: 1px solid rgba(147,197,253,.22); font-size: .76rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.demo-card h2 { margin: 1rem 0 .5rem; color: #f8fafc; font-size: 1.65rem; }
+.demo-card p, .demo-note { color: #cbd5e1; }
+.demo-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
+.demo-note { margin-top: 1rem; padding: 1rem; border-radius: 18px; background: rgba(255,255,255,.04); border: 1px solid rgba(148,163,184,.14); font-size: .95rem; }
+
 .outcome-grid,
 .platform-grid {
   display: grid;
