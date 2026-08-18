@@ -147,8 +147,7 @@ function startGsapEnhancements() {
     ".payment-grid",
     ".about-journey",
     ".about-principles",
-    ".home-care-grid",
-    ".demo-grid"
+    ".home-care-grid"
   ].forEach(function (groupSelector) {
     gsap.utils.toArray(groupSelector).forEach(function (group) {
       var children = Array.prototype.filter.call(group.children, function (child) {
@@ -185,18 +184,23 @@ function startGsapEnhancements() {
     });
   }
 
-  gsap.utils.toArray(".demo-thumb").forEach(function (thumb) {
-    gsap.to(thumb, { backgroundSize: "108%", duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut" });
-  });
-
-  gsap.utils.toArray(".demo-card").forEach(function (card) {
-    card.addEventListener("pointerenter", function () {
-      gsap.to(card, { y: -6, boxShadow: "0 34px 90px rgba(0,0,0,.38)", duration: .28, ease: "power2.out" });
-    });
-    card.addEventListener("pointerleave", function () {
-      gsap.to(card, { y: 0, duration: .32, ease: "power2.out", clearProps: "transform,boxShadow" });
-    });
-  });
+  var demoCards = gsap.utils.toArray(".demo-card");
+  if (demoCards.length) {
+    gsap.fromTo(
+      demoCards,
+      { scale: 0.68, z: -220, opacity: 0, transformPerspective: 1000, transformOrigin: "center center" },
+      {
+        scrollTrigger: { trigger: ".demo-grid", start: "top 86%", once: true },
+        scale: 1,
+        z: 0,
+        opacity: 1,
+        duration: 1.75,
+        stagger: 0.22,
+        ease: "back.out(1.45)",
+        clearProps: "opacity,transform"
+      }
+    );
+  }
 
   gsap.utils.toArray(".btn, .header-cta").forEach(function (button) {
     button.addEventListener("pointerenter", function () {
