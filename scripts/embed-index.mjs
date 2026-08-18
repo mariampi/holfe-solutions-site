@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 
 // Keep the static pages served by Sites aligned with their editable source files.
-for (const filename of ["rates.html", "rates-es.html", "services.html", "services-es.html", "styles.css"]) {
+for (const filename of ["rates.html", "rates-es.html", "services.html", "services-es.html", "payment.html", "payment-es.html", "styles.css"]) {
   const sourceFile = new URL(`../${filename}`, import.meta.url);
   const publicFile = new URL(`../public/${filename}`, import.meta.url);
   await writeFile(publicFile, await readFile(sourceFile), "utf8");

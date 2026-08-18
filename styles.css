@@ -715,6 +715,39 @@ select {
   }
 }
 
+.payment-page-hero { position: relative; overflow: hidden; }
+.payment-page-hero::after { content: ""; position: absolute; width: 420px; height: 420px; right: -140px; bottom: -220px; border-radius: 50%; background: radial-gradient(circle, rgba(63, 181, 166, 0.16), transparent 68%); pointer-events: none; }
+.payment-choice-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr); gap: 1.25rem; align-items: stretch; }
+.payment-card-featured { border-color: rgba(83, 127, 255, 0.42); box-shadow: 0 28px 80px rgba(20, 59, 142, 0.24); }
+.payment-card-head, .payment-action-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+.payment-step { color: rgba(212, 220, 240, 0.46); font-family: "Space Grotesk", sans-serif; font-size: 1.1rem; font-weight: 700; }
+.payment-card h2 { margin: 1.15rem 0 0.7rem; font-size: clamp(1.6rem, 3vw, 2.25rem); }
+.payment-action-row { margin-top: 1.25rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.payment-action-row .btn { flex: 1; }
+.payment-qr { flex: 0 0 116px; text-align: center; }
+.payment-qr.small { flex-basis: 96px; }
+.payment-qr img { width: 116px; max-width: 100%; padding: 0.4rem; border-radius: 14px; background: #fff; }
+.payment-qr.small img { width: 96px; }
+.payment-qr span { display: block; margin-top: 0.35rem; color: var(--text-muted); font-size: 0.74rem; }
+.payment-guidance { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr) auto; gap: 1.5rem; align-items: center; }
+.payment-guidance p { color: var(--text-muted); }
+.payment-checklist { display: grid; gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
+.payment-checklist li { display: flex; align-items: center; gap: 0.65rem; color: var(--muted-strong); font-weight: 700; }
+.payment-checklist span { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 10px; background: rgba(63, 181, 166, 0.14); color: #b9fff4; }
+.payment-faq-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.payment-faq-grid details { padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(18, 32, 59, 0.86), rgba(9, 17, 33, 0.92)); box-shadow: var(--shadow-card); }
+.payment-faq-grid summary { cursor: pointer; font-weight: 800; }
+.payment-faq-grid p { color: var(--text-muted); line-height: 1.65; }
+
+@media (max-width: 900px) {
+  .payment-choice-grid, .payment-guidance, .payment-faq-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .payment-action-row { align-items: stretch; flex-direction: column; }
+  .payment-qr, .payment-qr.small { flex-basis: auto; }
+}
+
 .grid-3,
 .feature-grid,
 .pricing-grid,
