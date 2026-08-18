@@ -49,11 +49,11 @@
   <main id="main" class="page">
     <section class="page-hero">
       <div class="container hero-copy">
-        <div class="eyebrow">Contacto</div>
-        <h1>Empecemos con una conversación clara.</h1>
+        <div class="eyebrow">Cuéntenos cómo funciona su negocio</div>
+        <h1>Empiece con la fricción. Le ayudaremos a definir el siguiente paso.</h1>
         <p class="lead">
-          Use el formulario para contarnos qué necesita, ya sea preparación para IA, apoyo operativo,
-          automatización de procesos o soporte técnico práctico. También puede escribir o llamar directamente.
+          No necesita saber qué tecnología o servicio solicitar. Describa el trabajo repetitivo,
+          la presión operativa o el problema técnico, y le ayudaremos a definir la ruta adecuada.
         </p>
       </div>
     </section>
@@ -62,21 +62,22 @@
       <div class="container contact-layout">
         <article class="info-card contact-copy">
           <div class="eyebrow">Contacto directo</div>
-          <h3>Escríbanos de la forma que le resulte más cómoda.</h3>
-          <p>HolFe Solutions trabaja con dueños de negocio, oficinas profesionales y clientes locales que valoran un apoyo claro y confiable.</p>
-          <ul class="detail-list">
-            <li>Correo: <a class="muted-link" href="mailto:info@holfesolutions.com">info@holfesolutions.com</a></li>
-            <li>Llamada o texto: <a class="muted-link" href="tel:7863533139">(786) 353-3139</a></li>
-            <li>Área de servicio: Miami-Dade y alrededores, con sesiones remotas disponibles para muchos casos</li>
-          </ul>
+          <h3>Elija la forma más fácil de comenzar.</h3>
+          <p>Ya sea una consulta, un proyecto o apoyo continuo, la primera conversación trata sobre su negocio, no sobre una venta.</p>
+          <div class="contact-channels">
+            <a href="mailto:info@holfesolutions.com"><span>Correo</span><strong>info@holfesolutions.com</strong></a>
+            <a href="tel:7863533139"><span>Llamada o texto</span><strong>(786) 353-3139</strong></a>
+            <div><span>Disponibilidad</span><strong>North Miami Beach · Miami-Dade + Broward · Remoto</strong></div>
+          </div>
+          <div class="stack-actions"><a class="btn btn-primary" href="booking-es.html">Reservar consulta</a><a class="btn btn-secondary" href="rates-es.html#care-plans">Ver planes Care</a></div>
           <div class="note-panel">
-            Si su situación es urgente, indíquelo en el mensaje para poder priorizar adecuadamente.
+            Las ciudades cercanas son nuestra zona principal de atención presencial. Con gusto consideramos viajes más largos para proyectos mayores y bien definidos. Si su situación es urgente, indíquelo en el mensaje.
           </div>
         </article>
 
         <article class="contact-card">
           <div class="eyebrow">Enviar mensaje</div>
-          <h3>Cuéntenos qué necesita.</h3>
+          <h3>Cuéntenos qué está frenando el negocio.</h3>
           <form action="mailto:info@holfesolutions.com?subject=Solicitud%20desde%20HolFe%20Solutions" method="post" enctype="text/plain" class="contact-form">
             <div class="form-grid">
               <div class="form-field">
@@ -92,8 +93,12 @@
                 <input id="email" name="email" type="email" required>
               </div>
               <div class="form-field">
-                <label for="address">Dirección o ubicación del negocio</label>
-                <input id="address" name="address" type="text" required>
+                <label for="topic">¿Qué le trae por aquí?</label>
+                <select id="topic" name="topic" required><option value="">Elija una opción</option><option>Consulta de IA o procesos</option><option>Automatización o mejora operativa</option><option>Soporte técnico</option><option>Plan HolFe Care</option><option>Todavía no estoy seguro</option></select>
+              </div>
+              <div class="form-field full">
+                <label for="address">Ubicación del negocio <span class="field-optional">(opcional)</span></label>
+                <input id="address" name="address" type="text">
               </div>
               <div class="form-field full">
                 <label for="message">¿En qué podemos ayudarle?</label>
@@ -103,11 +108,13 @@
             <div class="form-actions">
               <button class="btn btn-primary" type="submit">Enviar mensaje</button>
             </div>
-            <p class="small-note">En este sitio temporal estático, el formulario abre su aplicación de correo para enviar la solicitud directamente.</p>
+            <p class="small-note">Al enviar, se abre su aplicación de correo con la información lista para enviarla directamente a HolFe Solutions.</p>
           </form>
         </article>
       </div>
     </section>
+
+    <section class="section"><div class="container"><div class="section-head"><div><div class="eyebrow">Qué sucede después</div><h2>Un comienzo directo y sin presión innecesaria.</h2></div></div><div class="contact-next-grid"><article><span>01</span><h3>Revisamos</h3><p>Leemos su mensaje e identificamos las preguntas más útiles.</p></article><article><span>02</span><h3>Nos comunicamos</h3><p>Confirmamos si conviene una consulta, sesión, proyecto o plan Care.</p></article><article><span>03</span><h3>Definimos el siguiente paso</h3><p>Recibe un alcance, tarifa y expectativa claros antes de comenzar o pagar.</p></article></div></div></section>
   </main>
 
   <footer class="site-footer">

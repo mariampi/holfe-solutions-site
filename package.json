@@ -1,0 +1,20 @@
+{
+  "name": "holfe-solutions-sites-stage",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prepare:site": "node scripts/embed-index.mjs",
+    "dev": "npm run prepare:site && vinext dev",
+    "build": "npm run prepare:site && vinext build"
+  },
+  "dependencies": {
+    "@mdx-js/rollup": "^3.1.1",
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitejs/plugin-rsc": "^0.5.34",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-server-dom-webpack": "^19.2.6",
+    "vinext": "1.0.0-beta.6",
+    "vite": "^8.0.0"
+  }
+}
