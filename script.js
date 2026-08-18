@@ -125,9 +125,14 @@ function startGsapEnhancements() {
 
   [
     ".trust-grid",
+    ".outcome-grid",
     ".services-grid",
+    ".feature-grid",
     ".stats-grid",
+    ".stats",
     ".engagement-grid",
+    ".method-steps",
+    ".platform-grid",
     ".info-grid",
     ".timeline-grid",
     ".payment-grid"
