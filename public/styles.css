@@ -646,6 +646,75 @@ select {
   text-align: center;
 }
 
+.service-phase {
+  position: relative;
+}
+
+.service-phase-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1.2fr) minmax(240px, 0.8fr);
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 1.4rem;
+}
+
+.service-phase-head h2 {
+  margin-top: 0.25rem;
+}
+
+.service-phase-head > p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.phase-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(141, 182, 255, 0.28);
+  border-radius: 20px;
+  background: rgba(83, 127, 255, 0.12);
+  color: #dce6ff;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+}
+
+.care-service-phase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 50%, rgba(63, 181, 166, 0.1), transparent 65%);
+}
+
+.service-care-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr) auto;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.service-care-panel h3 {
+  margin: 1rem 0 0.6rem;
+  font-size: 1.55rem;
+}
+
+.service-care-panel p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .service-phase-head,
+  .service-care-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
 .grid-3,
 .feature-grid,
 .pricing-grid,
