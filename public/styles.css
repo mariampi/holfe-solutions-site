@@ -605,6 +605,47 @@ select {
   font-size: 0.88rem;
 }
 
+.care-plans-section {
+  position: relative;
+}
+
+.care-plans-section::before {
+  content: "";
+  position: absolute;
+  inset: 4% 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 45%, rgba(63, 181, 166, 0.11), transparent 62%);
+  pointer-events: none;
+}
+
+.care-plans-grid {
+  align-items: stretch;
+}
+
+.care-plan-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.care-plan-card .feature-list {
+  flex: 1;
+}
+
+.plan-cta {
+  width: 100%;
+  margin-top: 1.1rem;
+  text-align: center;
+}
+
+.care-plan-note {
+  max-width: 960px;
+  margin: 1.3rem auto 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
 .grid-3,
 .feature-grid,
 .pricing-grid,

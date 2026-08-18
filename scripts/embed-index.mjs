@@ -1,5 +1,12 @@
 import { readFile, writeFile } from "node:fs/promises";
 
+// Keep the static pages served by Sites aligned with their editable source files.
+for (const filename of ["rates.html", "rates-es.html", "styles.css"]) {
+  const sourceFile = new URL(`../${filename}`, import.meta.url);
+  const publicFile = new URL(`../public/${filename}`, import.meta.url);
+  await writeFile(publicFile, await readFile(sourceFile), "utf8");
+}
+
 const html = await readFile(new URL("../public/index.html", import.meta.url), "utf8");
 const match = html.match(/<body[^>]*>([\s\S]*?)<script\s+src=["']script\.js["'][^>]*><\/script>\s*<\/body>/i);
 
