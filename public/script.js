@@ -104,6 +104,15 @@ function startGsapEnhancements() {
     );
   }
 
+  var workflowNodes = gsap.utils.toArray(".workflow-node");
+  if (workflowNodes.length) {
+    workflowNodes.forEach(function (node, index) {
+      gsap.to(node, { y: index % 2 ? 7 : -7, duration: 2.4 + index * 0.35, repeat: -1, yoyo: true, ease: "sine.inOut" });
+    });
+    gsap.to(".workflow-path", { strokeDashoffset: -34, duration: 3.2, repeat: -1, ease: "none" });
+    gsap.to(".workflow-core", { boxShadow: "0 0 78px rgba(83,127,255,.36)", duration: 2.2, repeat: -1, yoyo: true, ease: "sine.inOut" });
+  }
+
   var revealSelectors = [
     ".section-head",
     ".glass-panel",
@@ -137,7 +146,8 @@ function startGsapEnhancements() {
     ".timeline-grid",
     ".payment-grid",
     ".about-journey",
-    ".about-principles"
+    ".about-principles",
+    ".home-care-grid"
   ].forEach(function (groupSelector) {
     gsap.utils.toArray(groupSelector).forEach(function (group) {
       var children = Array.prototype.filter.call(group.children, function (child) {
