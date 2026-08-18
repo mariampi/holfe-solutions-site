@@ -235,6 +235,8 @@ select {
   border-radius: 999px;
   background: linear-gradient(135deg, #b6cbff 0%, #6ea3ff 55%, #4f88ff 100%);
   box-shadow: 0 10px 30px rgba(79, 136, 255, 0.32);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .header-cta:hover,
@@ -1233,6 +1235,16 @@ select {
 
   .main-nav a {
     padding-inline: 0.8rem;
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 861px) {
+  .site-subtitle {
+    display: none;
+  }
+
+  .main-nav a {
+    padding-inline: 0.65rem;
   }
 }
 
