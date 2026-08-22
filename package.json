@@ -5,7 +5,7 @@
   "scripts": {
     "prepare:site": "node scripts/embed-index.mjs",
     "dev": "npm run prepare:site && vinext dev",
-    "build": "npm run prepare:site && vinext build"
+    "build": "npm run prepare:site && vinext build && node scripts/ensure-sites-entry.mjs"
   },
   "dependencies": {
     "@mdx-js/rollup": "^3.1.1",
