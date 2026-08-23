@@ -1,0 +1,4 @@
+1:"$Sreact.fragment"
+2:I[39756,["/glp-1-blueprint/_next/static/chunks/0ow5h2hllgi_f.js","/glp-1-blueprint/_next/static/chunks/0gj~-ki9pl~km.js"],"default"]
+3:I[37457,["/glp-1-blueprint/_next/static/chunks/0ow5h2hllgi_f.js","/glp-1-blueprint/_next/static/chunks/0gj~-ki9pl~km.js"],"default"]
+0:{"rsc":["$","$1","c",{"children":[null,["$","div",null,{"lang":"en","children":["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"xvUeTtqyXj58QCu1z5JJf"}
